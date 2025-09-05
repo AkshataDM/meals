@@ -1,12 +1,13 @@
-# 🍽️ Weekly Meal Planner
+# Weekly Meal Planner
 
 A comprehensive meal planning application built as a single Cloudflare Worker that combines:
 - **Frontend UI**: Beautiful, responsive meal planning interface
 - **Backend API**: Meal processing and Cloudflare Workers AI integration
-- **KV Storage**: Intelligent caching for ingredients
+- **KV Storage**: Basic caching for ingredients
+- **Vectorize**: Intelligence caching for ingredients
 - **Single Deployment**: Everything deployed as one worker
 
-## 🚀 Features
+## Features
 
 - **Weekly Meal Planning**: Plan breakfast, lunch, and dinner for each day
 - **AI-Powered Ingredients**: Uses Cloudflare Workers AI to generate shopping lists
@@ -15,7 +16,7 @@ A comprehensive meal planning application built as a single Cloudflare Worker th
 - **Week Navigation**: Easy navigation between weeks
 - **Copy to Clipboard**: One-click copying of shopping lists
 
-## 🏗️ Architecture
+## Architecture
 
 The application is structured as a single Cloudflare Worker with clear separation of concerns:
 
