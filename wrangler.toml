@@ -1,0 +1,30 @@
+name = "meal-planner"
+main = "src/worker.ts"
+compatibility_date = "2024-01-01"
+
+# KV Namespace binding
+[[kv_namespaces]]
+binding = "MEAL_PLANNER_KV"
+id = "ea622411961943dda162ad60fbb64bb0"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "MEAL_PLANNER_DB"
+database_name = "meal-planner-db"
+database_id = "7d58fdef-2ecc-423b-9300-ae3341eddc98"
+
+# AI binding for Workers AI
+[ai]
+binding = "AI"
+
+[[vectorize]]
+binding = "MEAL_VECTORIZE"
+index_name = "meal-ingredients-index"
+
+[observability.logs]
+enabled = true
+
+[vars]
+ENVIRONMENT = "production"
+# Optional: Add CLAUDE_API_KEY if you want to use Claude
+# CLAUDE_API_KEY = "your-claude-api-key-here" 
