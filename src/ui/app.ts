@@ -19,7 +19,7 @@ export function serveUI(request: Request): Response {
                 sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #faf7f2;
             min-height: 100vh;
             color: #333;
         }
@@ -34,13 +34,12 @@ export function serveUI(request: Request): Response {
         .header {
             text-align: center;
             margin-bottom: 30px;
-            color: white;
+            color: #2c3e50;
         }
 
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .header p {
@@ -85,9 +84,8 @@ export function serveUI(request: Request): Response {
         }
 
         .week-display h2 {
-            color: white;
+            color: #2c3e50;
             font-size: 1.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .calendar {
@@ -508,7 +506,7 @@ export function serveUI(request: Request): Response {
             margin: 0 auto;
             padding: 40px 20px;
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #faf7f2;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -517,13 +515,12 @@ export function serveUI(request: Request): Response {
         .landing-header {
             text-align: center;
             margin-bottom: 60px;
-            color: white;
+            color: #2c3e50;
         }
 
         .landing-header h1 {
             font-size: 3rem;
             margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .landing-header p {
@@ -756,19 +753,18 @@ export function serveUI(request: Request): Response {
             margin: 0 auto;
             padding: 20px;
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #faf7f2;
         }
 
         .nutrition-header {
             text-align: center;
             margin-bottom: 40px;
-            color: white;
+            color: #2c3e50;
         }
 
         .nutrition-header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .nutrition-header p {
@@ -981,7 +977,6 @@ export function serveUI(request: Request): Response {
             color: white;
             font-weight: 600;
             font-size: 0.9rem;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
         .daily-chart-visual {
