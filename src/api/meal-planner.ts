@@ -160,22 +160,24 @@ async function handleComputeIngredients(request: Request, env: Env): Promise<Res
       if (dayMeals.dinner) mealsText += `  Dinner: ${dayMeals.dinner}\n`;
     });
 
-    const prompt = `You are a helpful cooking assistant. Based on the following meal plan, create a comprehensive shopping list of ingredients needed. 
+    const prompt = `You are an expert cooking assistant with knowledge of specific recipes. For each meal listed below, use a well-known recipe you know and create an exact, detailed shopping list.
 
-Please:
-1. List all ingredients needed for the meals
-2. Group similar ingredients together (e.g., combine multiple tomatoes into one line)
-3. Include quantities where appropriate
-4. Organize by categories (Proteins, Vegetables, Dairy, Pantry items, etc.)
-5. Only include ingredients that would need to be purchased (don't include common household items like salt, pepper, oil unless specifically needed in large quantities)
+REQUIREMENTS:
+1. For each meal, reference a specific recipe you know (e.g., "classic chicken curry", "traditional pasta carbonara")
+2. List ALL ingredients with exact quantities (e.g., "2 lbs boneless chicken thighs", not "chicken")
+3. Be specific about ingredient types (e.g., "yellow onions", "Roma tomatoes", "jasmine rice")
+4. Include every ingredient needed - no vague terms like "other vegetables as necessary"
+5. Use bullet points for each ingredient
+6. Group by categories: Proteins, Vegetables, Dairy, Grains/Starches, Spices/Seasonings, Pantry Items
+7. Include cooking essentials if needed in significant quantities (olive oil, salt, etc.)
 
 Meal Plan:${mealsText}
 
-Please provide a clean, organized shopping list that someone could take to the grocery store.`;
+Provide an exact shopping list with specific quantities for each ingredient. No generalizations or "as needed" items.`;
 
     // Get AI provider preference and call appropriate API
     const aiProvider = await getAiProvider(env);
-    const systemPrompt = 'You are a helpful cooking assistant that creates shopping lists from meal plans.';
+    const systemPrompt = 'You are an expert chef with extensive recipe knowledge. Create precise, detailed shopping lists with exact quantities and specific ingredient types. Never use vague terms or generalizations.';
     
     let ingredients: string;
     if (aiProvider === 'claude') {
@@ -689,13 +691,21 @@ async function findSimilarMeal(env: Env, sessionId: string, mealText: string, th
 
 async function adaptIngredients(env: Env, originalMeal: string, targetMeal: string, originalIngredients: string): Promise<string> {
   try {
-    const systemPrompt = 'You are a cooking assistant that adapts ingredient lists between similar meals.';
+    const systemPrompt = 'You are an expert chef that adapts precise ingredient lists between similar meals. Always provide exact quantities and specific ingredient types.';
     const prompt = `Adapt this ingredient list from "${originalMeal}" to "${targetMeal}".
 
 Original ingredients:
 ${originalIngredients}
 
-Keep the core ingredients and cooking methods, but make specific substitutions for the differences between the meals. Return only the adapted ingredient list, no explanations.`;
+REQUIREMENTS:
+1. Keep the same format with exact quantities and specific ingredient types
+2. Make precise substitutions for the differences between meals (e.g., if changing rice to naan, substitute "2 cups jasmine rice" with "4 pieces naan bread")
+3. Maintain the same level of detail and specificity
+4. Use bullet points for each ingredient
+5. Include all necessary ingredients with exact quantities
+6. No vague terms like "as needed" or "other vegetables"
+
+Return only the adapted ingredient list with exact quantities, no explanations.`;
 
     const aiProvider = await getAiProvider(env);
     let adaptedIngredients: string;
