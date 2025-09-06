@@ -168,9 +168,9 @@ REQUIREMENTS:
 3. Be specific about ingredient types (e.g., "yellow onions", "Roma tomatoes", "jasmine rice")
 4. Include every ingredient needed - no vague terms like "other vegetables as necessary"
 5. Use bullet points for each ingredient
-6. Group by categories: Proteins, Vegetables, Dairy, Grains/Starches, Spices/Seasonings, Pantry Items
+6. Group by categories: Proteins, Vegetables, Dairy, Grains/Starches, Spices/Seasonings, Pantry Items and return only this combined list.
 7. Include cooking essentials if needed in significant quantities (olive oil, salt, etc.)
-
+8. Do not return individual meal specific ingredients. Return only the combined list.
 Meal Plan:${mealsText}
 
 Provide an exact shopping list with specific quantities for each ingredient. No generalizations or "as needed" items.`;
